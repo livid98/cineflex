@@ -4,9 +4,6 @@ export default function Topo(){
      <div className="topo">
       CINEFLEX
      </div>
-     <div className="baixotopo">
-     Selecione o filme
-     </div>
      </> 
     );
     

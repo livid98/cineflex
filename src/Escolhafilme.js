@@ -24,12 +24,15 @@ function Filme(filme) {
 
 
 
-        return ( 
-            
+        return ( <>
+                 <div className="baixotopo">
+                 Selecione o filme
+                 </div>
                 <div className="filmes">
                     {items.map((filme) => <Filme imag={filme.posterURL} id={filme.id} />)}
     
                 </div>
+                </>
             
         )
     
