@@ -9,6 +9,9 @@
     width: 100%;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
   }
 .topo{
     background-color: #C3CFD9;
@@ -38,13 +41,15 @@ color: #293845;
 }
 
 .filmes {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .filmes img {
@@ -53,7 +58,7 @@ color: #293845;
     background-color: white;
     padding: 3px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    border-radius: 4px;
     margin-bottom: 10px;
 }
 
@@ -98,4 +103,98 @@ color: #293845;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+.rodape{
+  height: 117px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  bottom: 0px;
+  background-color:#DFE6ED;
+  font-size: 20px;
+  font-weight: 300;
+  color:black;
+  
+}
+.filmerodape img{
+  height: 89px;
+  width: 64px;
+  background-color: white;
+  padding: 3px;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-left: 18px;
+}
+ .rodape h3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 22px;
+
+ }
+ .assentos {
+  max-width: 375px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+ 
+}
+
+
+.assento{width:26px ;
+ height: 26px;
+ border-radius: 12px;
+ background-color: #293845;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 5px;
+
+}
+
+@media (min-width: 500px) {
+  .sessao {max-width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 90px;
+  
+  }
+
+  .ajuste{
+    width: 241px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+.hora{
+  height: auto;
+  width: 83px;
+  left: 23px;
+  border-radius: 3px;  
+  background-color: #E8833A;
+  color:#FFFFFF;
+  font-size: 18px;
+  margin-right: 8px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: flex-start;
+}
+.data{
+  width: 241px;
+  height: auto;
+  font-size: 18px;
+  color:#293845;
+  font-weight: 300;
+  align-items: flex-start;
+  margin-bottom: 22px;
+  display: flex;
+}
 }

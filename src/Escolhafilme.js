@@ -32,6 +32,7 @@ function Filme(filme) {
                     {items.map((filme) => <Filme imag={filme.posterURL} id={filme.id} />)}
     
                 </div>
+            
                 </>
             
         )

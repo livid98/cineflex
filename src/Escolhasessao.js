@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Rodape from "./Rodape";
 
 
 function Sessao(filme) {
@@ -12,7 +13,7 @@ function Sessao(filme) {
        { 
 
         return (
-            <Link to={`/assento/${hora.id}`}>
+            <Link to={`/assentos/${hora.id}`}>
                 <div className="hora">
                  {hora.name}
                 </div>
@@ -37,21 +38,24 @@ function Sessao(filme) {
 		const requisicao = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
 
 		requisicao.then(resposta => {
-			setItems(resposta.data.days);
+			setItems(resposta.data);
 		});
 	}, []);
-
-
+         
         
-        return ( <>
+        return ( <> 
+                <>
               <div className="baixotopo">
               Selecione o horário
               </div>
                 <div className="sessao">
-                    {items.map((sessao, index) => <Sessao key={index} dia={sessao.weekday} data={sessao.date} showtimes={sessao.showtimes} />)}
+                    {items.days?.map((sessao, index) => <Sessao key={index} dia={sessao.weekday} data={sessao.date} showtimes={sessao.showtimes} />)}
     
                 </div>
                 </>
+                <Rodape imag={items.posterURL} titulo={items.title} hora=""/>
+                </>
+                
         )
     
 }
