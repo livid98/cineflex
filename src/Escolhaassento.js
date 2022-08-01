@@ -3,15 +3,25 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-
-function Assento(assento) {
+ 
+function Assento({status,nome}) {
+    
+    if(status===true){
     return (
-            <div className='assento'>
-              {assento.nome}
-              {assento.status}
+            <div className="cinza" >
+              {nome}
             </div>
     
     )
+}
+if (status===false){
+    return (
+        <div className="amarelo">
+          {nome}
+        </div>
+
+)
+}
 }
 
  function Assentos() {
@@ -32,7 +42,7 @@ function Assento(assento) {
                  Selecione o(s) assentos
                  </div>
                 <div className="assentos">
-                    {items.seats?.map((assento) => <Assento nome={assento.name} status={assento.isAvailable} />)}
+                    {items.seats?.map((assento, index) => <Assento nome={assento.name} status={assento.isAvailable} key={index}/>)}
     
                 </div>
 

@@ -145,16 +145,26 @@ color: #293845;
 }
 
 
-.assento{width:26px ;
+.cinza{width:26px ;
  height: 26px;
  border-radius: 12px;
- background-color: #293845;
+ background-color: #C3CFD9;
  display: flex;
  justify-content: center;
  align-items: center;
  margin: 5px;
 
 }
+.amarelo{width:26px ;
+  height: 26px;
+  border-radius: 12px;
+  background-color:  #FBE192;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+ 
+ }
 
 @media (min-width: 500px) {
   .sessao {max-width: 70%;
