@@ -117,6 +117,20 @@ color: #293845;
   color:black;
   
 }
+.rodape2{
+  height: 117px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  background-color:#DFE6ED;
+  font-size: 20px;
+  font-weight: 300;
+  color:black;
+  position: fixed;
+  bottom:0px;
+  
+}
 .filmerodape img{
   height: 89px;
   width: 64px;
@@ -132,6 +146,20 @@ color: #293845;
   justify-content: center;
   margin-left: 22px;
 
+ }
+ .rodape2 h3{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 22px;
+  margin-top: 40px;
+
+ }
+
+ h3 div{
+  margin-bottom: 10px;
  }
  .assentos {
   max-width: 375px;
@@ -164,6 +192,32 @@ color: #293845;
   align-items: center;
   margin: 5px;
  
+ }
+ .azul{width:26px ;
+  height: 26px;
+  border-radius: 12px;
+  background-color: #8dd7cf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+ 
+ }
+ .legenda{
+  width: 375px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+ }
+ .legenda div{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4E5A65;
+  font-size: 13px;
  }
 
 @media (min-width: 500px) {
