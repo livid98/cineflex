@@ -76,7 +76,7 @@ function Mudacor(){
                     <div><div className='azul'></div>Selecionado</div>  <div><div className='cinza'></div>Disponível</div>  <div><div className='amarelo'></div>Indisponível</div> 
                 </div>
                 </>
-                <Form ids={ids} setIds={setIds} titulo={items.movie?.title} dia={items.day?.weekday} hora={items.name} data={items.day?.date}/>
+                <Form ids={ids} setIds={setIds} titulo={items.movie?.title} dia={items.day?.weekday} hora={items.name} data={items.day?.date} assento={items.seats?.name}/>
                 <Rodape2 imag={items.movie?.posterURL} titulo={items.movie?.title} hora={items.name} dia={items.day?.weekday}/>
                 </>
             

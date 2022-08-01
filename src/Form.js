@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Form({ ids, setIds,titulo,dia,hora,data}){
+export default function Form({ ids, setIds,titulo,dia,hora,data,assento}){
     
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
@@ -11,20 +11,30 @@ export default function Form({ ids, setIds,titulo,dia,hora,data}){
     function Escrevaformulario(e){
         e.preventDefault();
 
-        const data = {
-            ids,
-            name,
-            cpf,
-            titulo,
-            dia,
-            hora,
-            data
-        }
+        
          if(ids.length===0){
             alert("escolha os lugares")
          }else{
-        const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', data);
-        promise.then(() => navigate('/sucesso'));
+            const reservation = {
+                ids,
+                name,
+                cpf
+            }
+
+            const tickets = {
+                ...reservation,
+                titulo,
+                data,
+                hora,
+            }
+
+            const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', reservation);
+            promise.then(() => navigate('/sucesso', {
+                state: {
+                    tickets
+                }
+            }));
+        
          }
     }
 
