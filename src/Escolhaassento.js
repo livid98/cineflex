@@ -3,15 +3,23 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Rodape2 from "./Rodape2";
+import Form from "./Form";
 
  
-function Assento({status,nome,Id}) {
+function Assento({status,nome,Id,ids,setIds}) {
    console.log(Id);
     const [cor,setCor] = useState("amarelo");
     const [cor2,setCor2] = useState("cinza");
+    const [clicked, setclick] = useState(false);
+
     if(status===true){
     return (
-            <div className={cor2} onClick={Mudacor}>
+            <div className={cor2}  onClick={ () => {
+                Mudacor()
+                setclick(!clicked);
+                setIds([...ids, Id]);
+                console.log(clicked)
+            }}>
               {nome}
             </div>
     
@@ -41,6 +49,7 @@ function Mudacor(){
 
  function Assentos() {
 	const [items, setItems] = useState([]);
+    const [ids, setIds] = useState([]);
     const {idSessao} = useParams();
 	useEffect(() => {
 		const requisicao = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
@@ -48,7 +57,7 @@ function Mudacor(){
 		requisicao.then(resposta => {
 			setItems(resposta.data);
 		});
-	}, []);
+	}, [idSessao]);
 
       console.log(items);
 
@@ -58,7 +67,8 @@ function Mudacor(){
                  Selecione o(s) assentos
                  </div>
                 <div className="assentos">
-                    {items.seats?.map((assento, index) => <Assento nome={assento.name} status={assento.isAvailable} key={index} Id={assento.id}/>)}
+                    {items.seats?.map((assento, index) => <Assento nome={assento.name} status={assento.isAvailable} key={index} Id={assento.id} ids={ids}
+                    setIds={setIds} />)}
     
                 </div>
 
@@ -66,6 +76,7 @@ function Mudacor(){
                     <div><div className='azul'></div>Selecionado</div>  <div><div className='cinza'></div>Disponível</div>  <div><div className='amarelo'></div>Indisponível</div> 
                 </div>
                 </>
+                <Form ids={ids} setIds={setIds} titulo={items.movie?.title} dia={items.day?.weekday} hora={items.name} data={items.day?.date}/>
                 <Rodape2 imag={items.movie?.posterURL} titulo={items.movie?.title} hora={items.name} dia={items.day?.weekday}/>
                 </>
             
